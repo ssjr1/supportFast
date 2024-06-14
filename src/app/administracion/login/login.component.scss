@@ -1,0 +1,36 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  border: 2px solid #4e0909;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(7, 190, 77, 0.1);
+  border-radius: 8px;
+  background-color: #666262;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+mat-form-field {
+  width: 50%;
+  margin-bottom: 16px;
+}
+
+.boton {
+  background-color: rgb(194, 49, 97);
+  border-radius: 8px;
+  height: 5vh;
+  border: 2px solid #4e0909;
+  width: 50%;
+  font-size: 20px;
+  justify-content: center;
+  color: #ffffff
+}
+
+.letras {
+  font-size: 25px;
+  color: #ffffff
+  
+}

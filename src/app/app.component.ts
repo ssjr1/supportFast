@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { AdministracionComponent } from './administracion/administracion.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LoginComponent } from './administracion/login/login.component';
+import { RegistroComponent } from './administracion/registro/registro.component';
+ 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, AdministracionComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [RouterOutlet, LoginComponent, RegistroComponent, RouterLink]
 })
 export class AppComponent {
   title = 'supportFast';
