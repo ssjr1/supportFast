@@ -3,11 +3,10 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Reportes</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#">Tickes por Usuario</a>
+      <a mat-list-item href="#">Tickes por Tecnico</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -21,8 +20,9 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <span>supportFast</span>
+      <span>SupportFast</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <app-tabla></app-tabla>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
