@@ -18,6 +18,7 @@ import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/p
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Persona } from '../../registros/persona';
 
 
 @Component({
@@ -35,16 +36,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './registro.component.scss' 
 })
 export class RegistroComponent implements  AfterViewInit{
-  title = 'taller-mat';
+
+  itle = 'taller-mat';
   minDate: Date;
   maxDate: Date;
   form: FormGroup ;
  
-  
+ 
 
-  
+  listaPersona: Persona[]=[];
 
-  displayedColumns: string[] = ['id', 'cedula', 'nombre', 'apellido','fechaNacimiento','genero','correo','direccion','acciones'];
+  displayedColumns: string[] = ['id', 'cedula', 'nombre', 'apellido','contrasenia','genero','correo','direccion','acciones'];
+  dataSource: MatTableDataSource<Persona> = new MatTableDataSource<Persona>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -64,7 +67,7 @@ export class RegistroComponent implements  AfterViewInit{
       cedula: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
+      contrasenia: ['', Validators.required],
       genero: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       direccion: ['', Validators.required],
@@ -73,14 +76,30 @@ export class RegistroComponent implements  AfterViewInit{
 
   }
   ngAfterViewInit(): void {
-     
+     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 
   
   agregarPersona(){
+    const persona: Persona = {
+      cedula: this.form.value.cedula,
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      contrasenia: this.form.value.contrasenia,
+      genero: this.form.value.genero,
+      correo: this.form.value.correo,
+      direccion: this.form.value.direccion,
+    }
     
-    
+    persona.id= this.listaPersona.length + 1,
+    persona.estado=true;
+
+    this.listaPersona.push(persona);
+    this.dataSource.data = this.listaPersona; 
+   
+    console.log(this.listaPersona)
 
    
     this.mensaje("registrado");
@@ -89,7 +108,12 @@ export class RegistroComponent implements  AfterViewInit{
 
   }
   filtrar(event: Event) {
-    
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }  
 
   mensaje(texto: string) {
@@ -104,3 +128,8 @@ export class RegistroComponent implements  AfterViewInit{
   }
   
 }
+
+     
+
+  
+
