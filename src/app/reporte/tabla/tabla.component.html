@@ -5,22 +5,32 @@
       <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
         <mat-card class="dashboard-card">
           <mat-card-header>
+            @if (card.title =="Card 1") {
+             
+              <app-reporte-tecnicos></app-reporte-tecnicos>
+        
+            
+          } @else {
             <mat-card-title>
               {{card.title}}
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
-            </mat-card-title>
-          </mat-card-header>
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>Expand</button>
+            <button mat-menu-item>Remove</button>
+          </mat-menu>
           <mat-card-content class="dashboard-card-content">
-            <div>Card Content Here</div>
+            <div>holis</div>
           </mat-card-content>
+            </mat-card-title>
+            
+          } 
+           
+          </mat-card-header>
         </mat-card>
       </mat-grid-tile>
     }
   </mat-grid-list>
 </div>
+

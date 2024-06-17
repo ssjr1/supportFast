@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { ReporteTecnicosComponent } from '../reporte-tecnicos/reporte-tecnicos.component';
 
 @Component({
   selector: 'app-tabla',
@@ -19,7 +20,8 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ReporteTecnicosComponent
   ]
 })
 export class TablaComponent {
@@ -38,7 +40,7 @@ export class TablaComponent {
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
+        { title: 'Card 1', cols: 2, rows: 2 },
         { title: 'Card 2', cols: 1, rows: 1 },
         { title: 'Card 3', cols: 1, rows: 2 },
         { title: 'Card 4', cols: 1, rows: 1 }
