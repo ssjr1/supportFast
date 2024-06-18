@@ -1,11 +1,15 @@
 table {
- width: 100%;
-
-left: auto;
-right:auto;
-top: 1px;
-bottom: 1px;
-position: sticky;
+    left: 200px; //izquierda
+    right: 200px;
+    top: 1px;
+    bottom: 0px;
+    position: sticky;
 }
 
-
+.paginator {
+    left: -5px; //izquierda
+    right: 80px;
+    top: 0px;
+    width: 100%;
+    position: relative;
+}
