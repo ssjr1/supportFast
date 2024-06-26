@@ -1,35 +1,52 @@
 <div class="mat-elevation-z0">
   <table mat-table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="IdTicket">
-      <th mat-header-cell *matHeaderCellDef> Id Ticket </th>
-      <td mat-cell *matCellDef="let element"> {{element.IdTicket}} </td>
+   
+    <ng-container matColumnDef="fechaCreacion">
+      <th mat-header-cell *matHeaderCellDef> Fecha Creacion </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaCreacion| date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="UsResponsable">
-      <th mat-header-cell *matHeaderCellDef> Usuario Responsable </th>
-      <td mat-cell *matCellDef="let element"> {{element.UsResponsable}} </td>
+    <!-- columna usuario responsable -->
+    <ng-container matColumnDef="fechaCierre">
+      <th mat-header-cell *matHeaderCellDef> Fecha Cierre </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaCierre| date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="UsSolicitante">
-      <th mat-header-cell *matHeaderCellDef> Usuario Solicitante </th>
-      <td mat-cell *matCellDef="let element"> {{element.UsSolicitante}} </td>
+    <!-- columna usuario solicitante -->
+    <ng-container matColumnDef="Ticket">
+      <th mat-header-cell *matHeaderCellDef> Ticket </th>
+      <td mat-cell *matCellDef="let element"> {{element.Ticket}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!--Columna Estado -->
     <ng-container matColumnDef="Estado">
       <th mat-header-cell *matHeaderCellDef> Estado </th>
       <td mat-cell *matCellDef="let element"> {{element.Estado}} </td>
     </ng-container>
+
+    <ng-container matColumnDef="tecnicoResponsable">
+      <th mat-header-cell *matHeaderCellDef> Tecnico Responsable </th>
+      <td mat-cell *matCellDef="let element"> {{element.tecnicoResponsable}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="solucion">
+      <th mat-header-cell *matHeaderCellDef> Solucion </th>
+      <td mat-cell *matCellDef="let element"> {{element.solucion}} </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    
    
   </table>
   <div class="paginator">
-    <mat-paginator [pageSizeOptions]="[5,10,]"
+    <mat-paginator [pageSizeOptions]="[5,9,]"
     showFirstLastButtons
     aria-label="Select page of periodic elements">
   </mat-paginator>
